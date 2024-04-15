@@ -1,3 +1,5 @@
+import Friend from './Friend';
+
 const initialFriends = [
   {
     id: 118836,
@@ -25,11 +27,8 @@ export default function FriendsList() {
   return (
     <div>
       <ul>
-        {friends.map(f => (
-          <li key={f.id}>
-            <img src={f.image} alt={f.name} />
-            {f.name}
-          </li>
+        {friends.map(friend => (
+          <Friend friend={friend} key={friend.id} />
         ))}
       </ul>
     </div>
