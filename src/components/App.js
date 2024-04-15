@@ -1,3 +1,11 @@
+import FriendsList from './FriendsList';
+
 export default function App() {
-  return <h1>Hello World!</h1>;
+  return (
+    <div className="app">
+      <div className="sidebar">
+        <FriendsList />
+      </div>
+    </div>
+  );
 }
