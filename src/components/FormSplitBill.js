@@ -1,3 +1,5 @@
+import Button from './Button';
+
 export default function FormSplitBill() {
   return (
     <form className="form-split-bill">
@@ -17,7 +19,7 @@ export default function FormSplitBill() {
         <option value="friend">X</option>
       </select>
 
-      <button className="button">Split bill</button>
+      <Button>Split bill</Button>
     </form>
   );
 }

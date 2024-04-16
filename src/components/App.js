@@ -1,3 +1,4 @@
+import Button from './Button';
 import FormAddFriend from './FormAddFriend';
 import FormSplitBill from './FormSplitBill';
 import FriendsList from './FriendsList';
@@ -8,7 +9,7 @@ export default function App() {
       <div className="sidebar">
         <FriendsList />
         <FormAddFriend />
-        <button className="button">Add Friend</button>
+        <Button>Add Friend</Button>
       </div>
 
       <FormSplitBill />

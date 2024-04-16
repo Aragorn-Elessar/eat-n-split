@@ -1,3 +1,5 @@
+import Button from './Button';
+
 export default function FormAddFriend() {
   return (
     <form className="form-add-friend">
@@ -7,7 +9,7 @@ export default function FormAddFriend() {
       <label>🌄 Image URL</label>
       <input type="text" />
 
-      <button className="button">Add</button>
+      <Button>Add</Button>
     </form>
   );
 }
