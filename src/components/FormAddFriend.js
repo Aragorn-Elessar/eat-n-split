@@ -1,27 +1,39 @@
 import { useState } from 'react';
 import Button from './Button';
 
-export default function FormAddFriend() {
-  const [friendName, setFriendName] = useState('');
-  const [friendImage, setFriendImage] = useState(
-    'https://ih1.redbubble.net/image.1446179621.9942/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg'
-  );
+export default function FormAddFriend({ onAddFriend }) {
+  const [name, setName] = useState('');
+  const [image, setImage] = useState('https://i.pravatar.cc/48');
 
-  function handleFriendName(e) {
-    setFriendName(e.target.value);
-  }
+  function handleOnSubmit(e) {
+    e.preventDefault();
 
-  function handleFriendImage(e) {
-    setFriendImage(e.target.value);
+    // Guard clause to prevent excution if no name/image
+    if (!name || !image) return;
+
+    const id = crypto.randomUUID();
+    onAddFriend({
+      id,
+      name,
+      image: `${image}?u=${id}`,
+      balance: 0,
+    });
+
+    setName('');
+    setImage('https://i.pravatar.cc/48');
   }
 
   return (
-    <form className="form-add-friend">
+    <form className="form-add-friend" onSubmit={e => handleOnSubmit(e)}>
       <label>👭 Friend name</label>
-      <input type="text" value={friendName} onChange={handleFriendName} />
+      <input type="text" value={name} onChange={e => setName(e.target.value)} />
 
       <label>🌄 Image URL</label>
-      <input type="text" value={friendImage} onChange={handleFriendImage} />
+      <input
+        type="text"
+        value={image}
+        onChange={e => setImage(e.target.value)}
+      />
 
       <Button>Add</Button>
     </form>
