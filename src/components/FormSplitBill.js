@@ -1,15 +1,24 @@
 import { useState } from 'react';
 import Button from './Button';
 
-export default function FormSplitBill({ selected }) {
+export default function FormSplitBill({ selected, onSplitBill }) {
   // Using an empty string because these are input text elements
   const [bill, setBill] = useState('');
   const [paidByUser, setPaidByUser] = useState('');
   const paidByFriend = bill ? bill - paidByUser : '';
   const [whoIsPaying, setWhoIsPaying] = useState('user');
 
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    // Gaurd clause
+    if (!bill || !paidByUser) return;
+
+    onSplitBill(whoIsPaying === 'user' ? paidByFriend : -paidByUser);
+  }
+
   return (
-    <form className="form-split-bill">
+    <form className="form-split-bill" onSubmit={handleSubmit}>
       <h2>split a bill with {selected.name}</h2>
       <label>💰 Bill value</label>
       <input
