@@ -1,3 +1,7 @@
+# Project-Description
+
+A React app to manage & split the bill payments between you and your friends. Developed by create-react-app. Implemented the app functionality including adding a new friend and splitting bill payments using controlled forms. Maintained while developing state management concepts such as `useState` hook, lefting up state, derived state, props and splitting components.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
