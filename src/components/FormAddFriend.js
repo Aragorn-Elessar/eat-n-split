@@ -24,7 +24,7 @@ export default function FormAddFriend({ onAddFriend }) {
   }
 
   return (
-    <form className="form-add-friend" onSubmit={e => handleOnSubmit(e)}>
+    <form className="form-add-friend" onSubmit={handleOnSubmit}>
       <label>👭 Friend name</label>
       <input type="text" value={name} onChange={e => setName(e.target.value)} />
 
