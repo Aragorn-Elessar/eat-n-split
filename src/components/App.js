@@ -80,7 +80,11 @@ export default function App() {
       </div>
 
       {selected && (
-        <FormSplitBill selected={selected} onSplitBill={handleSplitBill} />
+        <FormSplitBill
+          selected={selected}
+          onSplitBill={handleSplitBill}
+          key={selected.id}
+        />
       )}
     </div>
   );
